@@ -1,28 +1,26 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, StatusBar, Image } from 'react-native';
+import {StyleSheet, SafeAreaView, StatusBar} from 'react-native';
 
-import Home from './src/Home';
-import logo from './assets/image/marvelLogo.png';
-
+import {NavigationContainer} from '@react-navigation/native';
+import Header from './src/components/Header';
+import AppRoutes from './src/routes/app.routes';
 
 export default function App() {
   return (
-    <>
+    <NavigationContainer>
       <StatusBar barStyle="light-content" backgroundColor="#de041e" />
 
+      <Header />
       <SafeAreaView style={styles.container}>
-        <Image source={logo} style={styles.logo} />
-        <Home />
+        <AppRoutes />
       </SafeAreaView>
-    </>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#de041e',
-    paddingBottom: 10
   },
 
   logo: {
@@ -30,7 +28,6 @@ const styles = StyleSheet.create({
     height: 50,
     alignSelf: 'center',
     marginBottom: 20,
-    marginTop: 20
-  }
-
+    marginTop: 20,
+  },
 });
