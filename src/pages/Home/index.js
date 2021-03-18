@@ -26,7 +26,7 @@ export default function Home() {
   }, []);
 
   const renderItem = ({item: person}) => (
-    <View style={styles.personCard}>
+    <TouchableOpacity style={styles.personCard} onPress={() => {}}>
       <Image
         style={styles.avatar}
         source={{uri: `${person.thumbnail.path}.${person.thumbnail.extension}`}}
@@ -41,7 +41,7 @@ export default function Home() {
           <Text style={styles.textDescription}>without description.</Text>
         )}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   return (
