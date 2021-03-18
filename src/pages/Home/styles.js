@@ -22,8 +22,10 @@ const styles = StyleSheet.create({
   },
 
   textDescription: {
-    color: '#de041e',
+    fontSize: 16,
+    color: '#ff6969',
     fontWeight: 'bold',
+    fontFamily: 'Cochin',
   },
 
   avatar: {
