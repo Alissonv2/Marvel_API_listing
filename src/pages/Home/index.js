@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Text, FlatList, Image, TouchableOpacity, View} from 'react-native';
 
 import {publicKey, timestamp, hash} from '../../utils/keys';
+import SearchBar from '../../components/SearchBar';
 
 import styles from './styles';
 import api from '../../services/api';
@@ -15,6 +16,7 @@ export default function Home() {
         const response = await api.get(
           `characters?ts=${timestamp}&orderBy=name&limit=100&apikey=${publicKey}&hash=${hash.hex()}`,
         );
+
         const {results} = response.data.data;
         setPerson(results);
       } catch (error) {
@@ -24,6 +26,8 @@ export default function Home() {
 
     handlePerson();
   }, []);
+
+  const searchPersonForName = () => {};
 
   const renderItem = ({item: person}) => (
     <TouchableOpacity style={styles.personCard} onPress={() => {}}>
@@ -38,7 +42,7 @@ export default function Home() {
             {person.description}
           </Text>
         ) : (
-          <Text style={styles.textDescription}>without description.</Text>
+          <Text style={styles.textDescription}>Without description.</Text>
         )}
       </View>
     </TouchableOpacity>
